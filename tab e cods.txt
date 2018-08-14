@@ -1,0 +1,22 @@
+{125,118,87,39,7,0};
+
+{1000,994,696,312,56,1}
+
+{64,60,44,20,4,1}
+
+if(pos > 6)
+	{
+		pos = 0;
+		TIM4->CCR1 = duty[pos] - 1;
+		TIM4->CCR2 = (duty[pos++] - 1);
+		GPIOC->ODR ^= LEDT;
+	  
+	}
+
+TIM4->CCR1 = 1 - 1;
+				TIM4->CCR2 = (duty[pos++] - 1);
+				if(pos > 6)
+				{
+					pos = 0;
+					TIM4->CCR2 = duty[pos++];
+				}
